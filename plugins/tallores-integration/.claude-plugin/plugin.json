@@ -1,0 +1,16 @@
+{
+  "name": "tallores-integration",
+  "displayName": "TalloRes Reservation Integration",
+  "version": "1.0.0",
+  "description": "Integrates the TalloRes reservation system into any existing website.",
+  "author": { "name": "TalloRes", "email": "support@tallores.com" },
+  "homepage": "https://github.com/FrankVDL2471/tallores-skills",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "tallores-integration",
+      "description": "Use this skill whenever the user wants to integrate the TalloRes reservation system into a website. Triggers include any mention of \"TalloRes\", \"reservation system\", \"reservation widget\", \"booking widget\", \"online reservations\", or requests to add a reservation feature, booking button, or booking page to a website. Also use when the user asks to update or modify an existing TalloRes integration. Always use this skill before modifying any website files related to reservations or TalloRes.",
+      "path": "../SKILL.md"
+    }
+  ]
+}

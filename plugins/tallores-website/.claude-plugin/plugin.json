@@ -1,0 +1,16 @@
+{
+  "name": "tallores-website",
+  "displayName": "TalloRes Restaurant Website",
+  "version": "1.0.0",
+  "description": "Scaffolds a complete restaurant website from scratch with hero, menu, contact, and reservation sections.",
+  "author": { "name": "TalloRes", "email": "support@tallores.com" },
+  "homepage": "https://github.com/FrankVDL2471/tallores-skills",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "tallores-website",
+      "description": "Use this skill to set up a complete restaurant website project from scratch. Triggers include: \"set up a restaurant website\", \"create a restaurant site\", \"build a website for my restaurant\", \"scaffold a restaurant project\", or any request to generate a restaurant web presence. Also triggers when the user wants to generate or regenerate the CLAUDE.md, brand_assets folder, or index.html for a restaurant project. Always use this skill before writing any restaurant website files — it defines the full architecture, asset structure, and generation workflow.",
+      "path": "../SKILL.md"
+    }
+  ]
+}
