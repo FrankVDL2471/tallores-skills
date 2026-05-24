@@ -1,0 +1,20 @@
+{
+  "name": "tallores-plugin",
+  "version": "1.0.0",
+  "description": "Claude skills for building and integrating restaurant websites with the TalloRes online reservation system.",
+  "publisher": "TalloRes",
+  "license": "MIT",
+  "homepage": "https://tallores.com",
+  "skills": [
+    {
+      "name": "tallores-website",
+      "description": "Use this skill to set up a complete restaurant website project from scratch. Triggers include: \"set up a restaurant website\", \"create a restaurant site\", \"build a website for my restaurant\", \"scaffold a restaurant project\", or any request to generate a restaurant web presence. Also triggers when the user wants to generate or regenerate the CLAUDE.md, brand_assets folder, or index.html for a restaurant project. Always use this skill before writing any restaurant website files — it defines the full architecture, asset structure, and generation workflow.",
+      "path": "../../skills/tallores-website/SKILL.md"
+    },
+    {
+      "name": "tallores-integration",
+      "description": "Use this skill whenever the user wants to integrate the TalloRes reservation system into a website. Triggers include any mention of \"TalloRes\", \"reservation system\", \"reservation widget\", \"booking widget\", \"online reservations\", or requests to add a reservation feature, booking button, or booking page to a website. Also use when the user asks to update or modify an existing TalloRes integration. Always use this skill before modifying any website files related to reservations or TalloRes.",
+      "path": "../../skills/tallores-integration/SKILL.md"
+    }
+  ]
+}
