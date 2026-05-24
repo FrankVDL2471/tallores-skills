@@ -1,0 +1,90 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Restaurant
+
+- **Name:** {{restaurant_name}}
+- **Type:** {{restaurant_type}}
+- **Address:** {{address}}
+- **Phone:** {{phone}}
+- **Email:** {{email}}
+- **Visual Style:** {{visual_style}}
+
+## Always Do First
+- **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
+- **Read `brand_assets/theme.json`** before writing any styles — all design decisions must come from it.
+- **Invoke the `tallores-integration` skill** for any reservation-related work.
+
+## Template Architecture
+
+This project is a **multi-restaurant template**. `index.html` contains zero brand-specific content — it is a pure rendering shell. All brand data lives in `brand_assets/`.
+
+```
+brand_assets/
+  content.json   ← ALL text, nav, contact, images paths
+  theme.json     ← ALL design tokens (colors, fonts, spacing, shadows)
+  logo.svg       ← restaurant logo (or logo.png)
+  *.jpg / *.png  ← photos
+  menu.pdf       ← menu (optional — if present, a Menu section is shown)
+```
+
+**To rebrand this site for a different restaurant:** replace the entire `brand_assets/` folder. The HTML and JS do not change.
+
+### How it works
+
+`index.html` fetches both JSONs on load:
+1. `initTheme(theme)` — writes all `theme.json` values as CSS custom properties on `:root`
+2. `renderPage(content)` — populates every DOM node from `content.json`
+
+All colors in CSS use `var(--color-*)`. All fonts use `var(--font-heading)` / `var(--font-body)`. No hex values appear in `index.html`.
+
+### Adding new styled elements
+
+- **New color or font** → add to `theme.json` first, then reference via the CSS custom property it maps to.
+- **New content** → add to `content.json`, then add a renderer call in `renderPage()`.
+- Never hard-code brand values directly in `index.html`.
+
+### Key content.json sections
+
+| Key | Purpose |
+|-----|---------|
+| `meta` | `<title>` and `<meta description>` |
+| `restaurant` | Name, tagline, hero subtitle, story text |
+| `assets` | Logo path, image paths |
+| `nav` | Nav link labels/hrefs, CTA button |
+| `menu_pdf` | Path to menu PDF (omit key if no PDF) |
+| `contact` | Address, phone, email, hours |
+| `footer` | Address line, copyright |
+
+## Local Server
+- Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`)
+- `serve.mjs` lives in the project root. Start it in the background.
+- If the server is already running, do not start a second instance.
+
+## Output Defaults
+- Single `index.html` file, all styles inline
+- Tailwind CSS via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
+- Mobile-first responsive
+
+## Brand Assets
+- `brand_assets/` contains: `theme.json`, `content.json`, logo, photos, and optionally `menu.pdf`
+- Use real assets — do not use placeholders where real assets are available.
+
+## Anti-Generic Guardrails
+- **Colors:** Never use default Tailwind palette (indigo-500, blue-600, etc.). All colors from `theme.json`.
+- **Shadows:** Never use flat `shadow-md`. Use layered, color-tinted shadows from `theme.json`.
+- **Typography:** Heading font paired with body font from `theme.json`. Apply tight tracking on large headings, generous line-height on body.
+- **Animations:** Only animate `transform` and `opacity`. Never `transition-all`. Use spring-style easing.
+- **Interactive states:** Every clickable element needs hover, focus-visible, and active states.
+- **Images:** Add warm overlay on images. Add gradient overlay on hero images.
+- **Spacing:** Use spacing tokens from `theme.json`.
+
+## Reservation Widget (TalloRes)
+- **Invoke the `tallores-integration` skill** for any reservation-related work — widget placement, nav link wiring, URL construction.
+- The TalloRes RestaurantId is stored as `<meta name="tallores-restaurant-id">` in `<head>`.
+
+## Hard Rules
+- Do not use `transition-all`
+- Do not use default Tailwind blue/indigo as primary color
+- Do not introduce a color, font, size, or shadow not present in `theme.json` — add it there first
