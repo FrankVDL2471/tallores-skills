@@ -1,4 +1,4 @@
-# claude-skills
+# tallores-skills
 
 Claude skills for building and integrating restaurant websites with the TalloRes reservation system.
 
