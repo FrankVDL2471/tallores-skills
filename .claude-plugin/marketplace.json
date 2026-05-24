@@ -1,0 +1,61 @@
+{
+  "$schema": "https://claude.ai/schemas/plugin-marketplace/v1.json",
+  "name": "tallores-skills",
+  "displayName": "TalloRes Restaurant Skills",
+  "version": "1.0.0",
+  "description": "Claude skills for building and integrating restaurant websites with the TalloRes online reservation system.",
+  "publisher": {
+    "name": "TalloRes",
+    "url": "https://tallores.com",
+    "email": "support@tallores.com"
+  },
+  "homepage": "https://github.com/tallores/tallores-skills",
+  "license": "MIT",
+  "categories": ["web-development", "hospitality", "integrations"],
+  "keywords": ["restaurant", "website", "reservation", "tallores", "booking", "widget"],
+  "skills": [
+    {
+      "name": "tallores-website",
+      "displayName": "TalloRes Restaurant Website",
+      "description": "Scaffolds a complete restaurant website from scratch: collects restaurant details, generates project structure, and produces a single-page site with hero, menu, contact, and reservation sections.",
+      "path": "tallores-website/SKILL.md",
+      "triggers": [
+        "set up a restaurant website",
+        "create a restaurant site",
+        "build a website for my restaurant",
+        "scaffold a restaurant project",
+        "generate a restaurant web presence"
+      ],
+      "produces": [
+        "index.html",
+        "brand_assets/theme.json",
+        "brand_assets/content.json",
+        "CLAUDE.md",
+        "serve.mjs"
+      ],
+      "references": [
+        "tallores-website/references/theme-presets.md",
+        "tallores-website/references/CLAUDE.md.template"
+      ],
+      "dependencies": ["tallores-integration"]
+    },
+    {
+      "name": "tallores-integration",
+      "displayName": "TalloRes Reservation Integration",
+      "description": "Integrates the TalloRes online reservation system into any existing website. Supports floating widget, direct reservation links, and embedded iframe — picks the right method based on your site's structure.",
+      "path": "tallores-integration/SKILL.md",
+      "triggers": [
+        "add a reservation widget",
+        "integrate TalloRes",
+        "add online reservations",
+        "add a booking button",
+        "add a booking page",
+        "reservation system",
+        "booking widget"
+      ],
+      "produces": [],
+      "references": [],
+      "dependencies": []
+    }
+  ]
+}
